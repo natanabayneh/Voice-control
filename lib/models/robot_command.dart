@@ -32,11 +32,15 @@ enum RobotCommand {
   static const _matchOrder = [stop, left, right, backward, forward];
 
   /// Finds the command a spoken phrase refers to, or null if none matches.
+  ///
+  /// Matching is on whole words, so "goal" is not a "go" and "stopwatch"
+  /// is not a "stop".
   static RobotCommand? match(String transcript) {
     final text = transcript.toLowerCase();
     for (final command in _matchOrder) {
       for (final keyword in command.keywords) {
-        if (RegExp('\b$keyword\b').hasMatch(text)) return command;
+        final pattern = RegExp(r'\b' + RegExp.escape(keyword) + r'\b');
+        if (pattern.hasMatch(text)) return command;
       }
     }
     return null;
