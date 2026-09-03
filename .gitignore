@@ -43,3 +43,64 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# ---------------------------------------------------------------
+# Large / generated artifacts — never commit these
+# ---------------------------------------------------------------
+
+# Build output (any depth, not just the repo root)
+build/
+**/build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Gradle
+.gradle/
+**/.gradle/
+android/.gradle/
+android/captures/
+android/local.properties
+android/key.properties
+android/app/.cxx/
+gradle-app.setting
+.gradletasknamecache
+
+# Compiled binaries & packages
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+*.jar
+*.so
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Signing material — keep private keys out of git
+*.jks
+*.keystore
+*.p12
+*.pem
+
+# Native symbols / obfuscation maps
+*.symbols
+*.map.json
+**/android/**/obj/
+
+# IDE / tooling caches
+.idea/
+.vscode/
+*.iml
+.qodo/
+.cxx/
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
